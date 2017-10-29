@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="gaoruierp:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="gaoruierp.war">
+      <element id="artifact" artifact-name="gaoruierp:war exploded" />
+    </root>
+  </artifact>
+</component>
