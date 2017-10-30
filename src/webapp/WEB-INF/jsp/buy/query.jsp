@@ -8,6 +8,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+	<script type='text/javascript' src=../../js/jquery-3.2.1.js></script>
 	<script type="text/javascript" src="<%=path %>/js/jquery-1.7.2.js"></script>
 	<link type="text/css" href="<%=path %>/css/css.css" rel="stylesheet"/>
     <link rel="stylesheet" href="<%=path %>/css/pintuer.css">
@@ -58,7 +59,7 @@
 <script type="text/javascript">
 
 function showDetail(importid) {
-    location.href="/import/getAllImport.html";
+    location.href="/import/getImport/"+importid;
 
 }
 </script>

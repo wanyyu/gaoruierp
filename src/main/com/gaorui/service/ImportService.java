@@ -11,5 +11,5 @@ import java.util.List;
 public interface ImportService {
    List<Import> getAllImport(Import im);
 
-   Import getImport(Integer importid);
+   Import getImport(String importid);
 }

@@ -1,8 +1,7 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html; charset=utf-8" %>
 <%
 	String path = request.getContextPath();
-	Integer buyId = Integer.parseInt(request.getParameter("buyId"));
  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -15,29 +14,20 @@
 <body>
 	<center>
 		<form action="" method="post" name="form1">
-		<input type="hidden" name="buyId" value='<%=buyId %>'>
 			采购单编号：<input type="text" name="bid" id="bid" class="input" style="width:250px; line-height:17px;display:inline-block" placeholder="请输入搜索关键字">
 			<input type="button" value="查询" onclick="query(1)" class="button border-main icon-search">
 			<a class="button border-main icon-plus-square-o" onclick="goIns()">新增</a>
 		</form>
 	
 	<hr/>
-	<div id="showTable"></div>
-	<hr/>
 	<span id="page_message"></span>
-	<input class='button border-main' type="button" value="首页" id="first" onclick="query(5)">
-	<input class='button border-main' type="button" value="上一页" id="up"  onclick="query(2)">
-	<input class='button border-main' type="button" value="下一页" id="end"  onclick="query(3)">
-	<input class='button border-main' type="button" value="尾页" id="down"  onclick="query(4)">
+
 	</center>
 
 </body>
 
 
 
-/*
-	查询
-*/
 
 		<table class='table table-hover text-center'>
 			<tr>
@@ -55,22 +45,23 @@
 			</tr>
 
 			<tr>
-				<td>${import.importid}</td>
-				<td>${import.merch.name}</td>
-				<td>${import.proffer.name}</td>
-				<td>${import.user.loginid}</td>
-				<td>${import.num}</td>
-				<td>${import.price}</td>
-				<td>${import.totalmoney}</td>
-				<td>${import.importdate}</td>
+				<td>${imp.importid}</td>
+				<td>${imp.merch.name}</td>
+				<td>${imp.proffer.name}</td>
+				<td>${imp.user.loginid}</td>
+				<td>${imp.num}</td>
+				<td>${imp.price}</td>
+				<td>${imp.totalmoney}</td>
+				<td>${imp.importdate}</td>
 				<td>
-					<c:if test="${import.about}==0">未到货</c:if>
-					<c:if test="${import.about}==1">已到货</c:if>
+				<c:if test="${imp.about==0}">未到货</c:if>
+				<c:if test="${imp.about==1}">已到货</c:if>
 				</td>
-				<td>${import.other}</td>
-				<td><a class='button border-main' href='#' onclick='goUpd(
-	 					)'>更新</a><a class='button border-red' href='#' onclick='goDel(
-					)'>删除</a></td>
+				<td>${imp.other}</td>
+				<td>
+					<a class='button border-main' href='#' onclick='goUpd()'>更新</a>
+					<a class='button border-red' href='#' onclick='goDel()'>删除</a>
+				</td>
 			</tr>
 
 

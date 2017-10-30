@@ -55,11 +55,6 @@ public class UserController {
         return "other/index";
     }
 
-    //跳转采购首页
-    @RequestMapping(value = "/importIndex.html",produces = "text/html;charset=utf-8")
-    public String getimportIndex(){
-        return "buy/query";
-    }
 
 
 

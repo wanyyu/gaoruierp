@@ -19,7 +19,7 @@ public class ImportServiceImpl implements ImportService {
     }
 
     @Override
-    public Import getImport(Integer importid) {
+    public Import getImport(String importid) {
         return importDao.getImport(importid);
     }
 

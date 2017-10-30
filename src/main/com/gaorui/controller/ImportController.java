@@ -26,10 +26,11 @@ public class ImportController {
     }
 
     //获取订单详情
-    @RequestMapping(value = "/getImport.html",produces = "text/html;charset=utf-8")
-    public String getImport( HttpServletRequest request,@PathVariable Integer importid){
-        request.setAttribute("import",importService.getImport(importid));
+    @RequestMapping(value = "/getImport/{importid}",produces = "text/html;charset=utf-8")
+    public String getImport( HttpServletRequest request,@PathVariable String importid){
+        request.setAttribute("imp",importService.getImport(importid));
         return "buydetail/query";
     }
+
 
 }
