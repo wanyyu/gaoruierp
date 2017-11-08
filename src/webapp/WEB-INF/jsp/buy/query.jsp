@@ -16,12 +16,12 @@
 </head>
 <body>
 <span>采购管理</span>
+<a href="/user/getIndex.html">首页</a>
 	<center>
-		<form action="" method="post" name="form1">
-			编号：<input type="text" name="bid" id="bid" class="input" style="width:250px; line-height:17px;display:inline-block" placeholder="请输入搜索关键字">
-			采购员：<input type="text" name="username" id="username" class="input" style="width:250px; line-height:17px;display:inline-block" placeholder="请输入搜索关键字">
-			<input type="button" value="查询" onclick="query(1)" class="button border-main icon-search">
-			<a class="button border-main icon-plus-square-o" onclick="goIns()">新增</a>
+		<form action="/import/getAllImport.html" method="post" name="form1">
+			编号：<input type="text" name="importid" id="bid" class="input" style="width:250px; line-height:17px;display:inline-block" placeholder="请输入搜索关键字">
+			采购员：<input type="text" name="user.loginid" id="username" class="input" style="width:250px; line-height:17px;display:inline-block" placeholder="请输入搜索关键字">
+			<input type="submit" value="查询"  class="button border-main icon-search">
 		</form>
 
 	<hr/>
@@ -49,8 +49,7 @@
 						<td width='30%'><%--<fmt:formatDate value="&ndash;%&gt;--%>${imp.importdate}"
 														<%--pattern="yyyy-MM-dd HH:mm:ss"/>--%></td>
 	 					<td width='50%'>
-							<input class='button border-main' type='button' value='修改' onclick='goUpd()'>
-							<input class='button border-red' type='button' value='删除' onclick='goDel()'>
+							<input class='button border-red' type='button' value='删除' onclick='delimport(${imp.importid })'>
 							<input class='button border-main' type='button' value='查看采购明细' onclick='showDetail(${imp.importid})'>
 						</td>
 					</tr>
@@ -61,6 +60,25 @@
 function showDetail(importid) {
     location.href="/import/getImport/"+importid;
 
+}
+function delimport(importid) {
+    if (confirm('确认要删除吗？')) {
+        $.ajax({
+            type: 'POST',
+            url: '/import/delImport/' + importid,
+            dataType: 'json',
+            success: function (result) {
+                if (result.flag) {
+                    alert("删除成功");
+                    location.replace(location.href);
+                } else alert("删除失败")
+            },
+
+            error: function () {
+                alert('删除出错');
+            },
+        })
+    }
 }
 </script>
 

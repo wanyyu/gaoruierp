@@ -2,9 +2,11 @@ package com.gaorui.dao.impl;
 
 import com.gaorui.dao.ImportDao;
 import com.gaorui.entity.Import;
+import com.gaorui.entity.User;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.springframework.http.HttpRequest;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -50,7 +52,7 @@ public class ImportDaoImpl extends HibernateDaoSupport implements ImportDao {
     }
 
     @Override
-    public boolean InsertImport(Import newImport) {
+    public boolean insertImport(Import newImport) {
         boolean bool=false;
         try {
             Session session=this.getSessionFactory().getCurrentSession();
@@ -60,6 +62,33 @@ public class ImportDaoImpl extends HibernateDaoSupport implements ImportDao {
             e.printStackTrace();
         }
 
+        return bool;
+    }
+
+    @Override
+    public boolean updateImport(Import upImport) {
+        boolean bool=false;
+        try {
+            Session session=this.getSessionFactory().getCurrentSession();
+            session.update(upImport);
+            bool = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return bool;
+    }
+
+    @Override
+    public boolean deleteImport(String importid) {
+        boolean bool=false;
+        try {
+            Session session=this.getSessionFactory().getCurrentSession();
+            Import im=session.get(Import.class,importid);
+            session.delete(im);
+            bool = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return bool;
     }
 }

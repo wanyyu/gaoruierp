@@ -18,10 +18,10 @@
                 <a href="/import/getAllImport.html">采购管理</a>
             </td>
             <td>
-                <a href="">库存管理</a>
+                <a href="/store/getAllStore.html">库存管理</a>
             </td>
             <td>
-                <a href="">销售管理</a>
+                <a href="/sale/getAllSale.html">销售管理</a>
             </td>
         </tr>
     </table>

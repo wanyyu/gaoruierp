@@ -12,4 +12,10 @@ public interface ImportService {
    List<Import> getAllImport(Import im);
 
    Import getImport(String importid);
+
+   boolean insertImport(Import newImport);
+
+   boolean updateImport(Import upImport);
+
+   boolean deleteImport(String importid);
 }

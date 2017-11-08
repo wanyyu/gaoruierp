@@ -1,20 +1,21 @@
 package com.gaorui.entity;
 
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
 
 /**
  * Created by Administrator on 2017/10/26 0026.
  */
 @Entity
+@DynamicUpdate(true)
 public class Import {
     private String importid;
-    private Float price;
+    private Double price;
     private Integer num;
-    private Float totalmoney;
+    private Double totalmoney;
 
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date importdate;
@@ -38,11 +39,11 @@ public class Import {
 
     @Basic
     @Column(name = "price")
-    public Float getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -58,11 +59,11 @@ public class Import {
 
     @Basic
     @Column(name = "totalmoney")
-    public Float getTotalmoney() {
+    public Double getTotalmoney() {
         return totalmoney;
     }
 
-    public void setTotalmoney(Float totalmoney) {
+    public void setTotalmoney(Double totalmoney) {
         this.totalmoney = totalmoney;
     }
 

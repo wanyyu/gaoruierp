@@ -12,6 +12,10 @@ public interface ImportDao {
 
     Import getImport(String  importid);
 
-    boolean InsertImport(Import newImport);
+    boolean insertImport(Import newImport);
+
+    boolean updateImport(Import upImport);
+
+    boolean deleteImport(String importid);
 
 }

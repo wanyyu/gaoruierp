@@ -17,265 +17,338 @@
     <table id="11" parent="2" name="merch"/>
     <table id="12" parent="2" name="person"/>
     <table id="13" parent="2" name="proffer"/>
-    <table id="14" parent="2" name="user"/>
-    <column id="15" parent="9" name="customerid">
+    <table id="14" parent="2" name="sale"/>
+    <table id="15" parent="2" name="store"/>
+    <table id="16" parent="2" name="user"/>
+    <column id="17" parent="9" name="customerid">
       <Position>1</Position>
       <Comment>客户编号</Comment>
       <DataType>varchar(6)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="16" parent="9" name="name">
+    <column id="18" parent="9" name="name">
       <Position>2</Position>
       <Comment>姓名</Comment>
       <DataType>varchar(8)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
     </column>
-    <column id="17" parent="9" name="sex">
+    <column id="19" parent="9" name="sex">
       <Position>3</Position>
       <Comment>性别</Comment>
       <DataType>varchar(2)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="18" parent="9" name="home">
+    <column id="20" parent="9" name="home">
       <Position>4</Position>
       <Comment>籍贯</Comment>
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="19" parent="9" name="banknumber">
+    <column id="21" parent="9" name="banknumber">
       <Position>5</Position>
       <Comment>银行账号</Comment>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="20" parent="9" name="PRIMARY">
+    <key id="22" parent="9" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>customerid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="21" parent="10" name="importid">
+    <column id="23" parent="10" name="importid">
       <Position>1</Position>
       <Comment>进货单号</Comment>
       <DataType>varchar(6)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="22" parent="10" name="merchid">
+    <column id="24" parent="10" name="merchid">
       <Position>2</Position>
       <Comment>外键，关联商品表</Comment>
       <DataType>varchar(6)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="23" parent="10" name="profferid">
+    <column id="25" parent="10" name="profferid">
       <Position>3</Position>
       <Comment>外键，关联供货商表</Comment>
       <DataType>varchar(6)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="24" parent="10" name="price">
+    <column id="26" parent="10" name="userid">
       <Position>4</Position>
-      <Comment>进货价</Comment>
-      <DataType>decimal(10,2)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="25" parent="10" name="num">
-      <Position>5</Position>
-      <Comment>数量</Comment>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="26" parent="10" name="totalmoney">
-      <Position>6</Position>
-      <Comment>金额</Comment>
-      <DataType>decimal(10)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="27" parent="10" name="importdate">
-      <Position>7</Position>
-      <Comment>进货日期</Comment>
-      <DataType>datetime|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="28" parent="10" name="getdate">
-      <Position>8</Position>
-      <Comment>到货日期</Comment>
-      <DataType>datetime|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="29" parent="10" name="about">
-      <Position>9</Position>
-      <Comment>0为到货 1已到货</Comment>
-      <DataType>int(1)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="30" parent="10" name="other">
-      <Position>10</Position>
-      <Comment>备注，由仓库控制</Comment>
-      <DataType>varchar(50)|0</DataType>
-    </column>
-    <column id="31" parent="10" name="userid">
-      <Position>11</Position>
       <Comment>user表外键，采购人</Comment>
       <DataType>int(5)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="32" parent="10" name="PK_merch">
+    <column id="27" parent="10" name="price">
+      <Position>5</Position>
+      <Comment>进货价</Comment>
+      <DataType>double(10,2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="10" name="num">
+      <Position>6</Position>
+      <Comment>数量</Comment>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="10" name="totalmoney">
+      <Position>7</Position>
+      <Comment>金额</Comment>
+      <DataType>double(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="10" name="importdate">
+      <Position>8</Position>
+      <Comment>进货日期</Comment>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="10" name="getdate">
+      <Position>9</Position>
+      <Comment>到货日期</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="32" parent="10" name="about">
+      <Position>10</Position>
+      <Comment>0未到货 1已到货</Comment>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="10" name="other">
+      <Position>11</Position>
+      <Comment>备注，由仓库控制</Comment>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <index id="34" parent="10" name="PK_merch">
       <ColNames>merchid</ColNames>
     </index>
-    <index id="33" parent="10" name="PK_proffer">
+    <index id="35" parent="10" name="PK_proffer">
       <ColNames>profferid</ColNames>
     </index>
-    <index id="34" parent="10" name="PK_user">
+    <index id="36" parent="10" name="PK_user">
       <ColNames>userid</ColNames>
     </index>
-    <key id="35" parent="10" name="PRIMARY">
+    <key id="37" parent="10" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>importid</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="36" parent="10" name="PK_merch">
+    <foreign-key id="38" parent="10" name="PK_merch">
       <ColNames>merchid</ColNames>
       <RefSchemaName>gaorui</RefSchemaName>
       <RefTableName>merch</RefTableName>
       <RefColNames>merchid</RefColNames>
     </foreign-key>
-    <foreign-key id="37" parent="10" name="PK_proffer">
+    <foreign-key id="39" parent="10" name="PK_proffer">
       <ColNames>profferid</ColNames>
       <RefSchemaName>gaorui</RefSchemaName>
       <RefTableName>proffer</RefTableName>
       <RefColNames>profferid</RefColNames>
     </foreign-key>
-    <foreign-key id="38" parent="10" name="PK_user">
+    <foreign-key id="40" parent="10" name="PK_user">
       <ColNames>userid</ColNames>
       <RefSchemaName>gaorui</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>userid</RefColNames>
     </foreign-key>
-    <column id="39" parent="11" name="merchid">
+    <column id="41" parent="11" name="merchid">
       <Position>1</Position>
       <Comment>商品编号</Comment>
       <DataType>varchar(6)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="40" parent="11" name="profferid">
+    <column id="42" parent="11" name="profferid">
       <Position>2</Position>
       <Comment>外键，关联供货商表</Comment>
       <DataType>varchar(6)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="41" parent="11" name="name">
+    <column id="43" parent="11" name="name">
       <Position>3</Position>
       <Comment>商品名称</Comment>
       <DataType>varchar(25)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="42" parent="11" name="cost">
+    <column id="44" parent="11" name="cost">
       <Position>4</Position>
       <Comment>单价</Comment>
       <DataType>decimal(10,2)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="43" parent="11" name="num">
+    <column id="45" parent="11" name="num">
       <Position>5</Position>
       <Comment>库存</Comment>
-      <DataType>int(4)|0</DataType>
+      <DataType>int(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="44" parent="11" name="others">
+    <column id="46" parent="11" name="others">
       <Position>6</Position>
       <Comment>备注</Comment>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <index id="45" parent="11" name="PK_MP">
+    <index id="47" parent="11" name="PK_MP">
       <ColNames>profferid</ColNames>
     </index>
-    <key id="46" parent="11" name="PRIMARY">
+    <key id="48" parent="11" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>merchid</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="47" parent="11" name="PK_MP">
+    <foreign-key id="49" parent="11" name="PK_MP">
       <ColNames>profferid</ColNames>
       <RefSchemaName>gaorui</RefSchemaName>
       <RefTableName>proffer</RefTableName>
       <RefColNames>profferid</RefColNames>
     </foreign-key>
-    <column id="48" parent="12" name="personid">
+    <column id="50" parent="12" name="personid">
       <Position>1</Position>
       <Comment>联系人id</Comment>
       <DataType>int(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="49" parent="12" name="phone">
+    <column id="51" parent="12" name="phone">
       <Position>2</Position>
       <Comment>联系人电话</Comment>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="50" parent="12" name="job">
+    <column id="52" parent="12" name="job">
       <Position>3</Position>
       <Comment>联系人职位</Comment>
       <DataType>varchar(5)|0</DataType>
     </column>
-    <key id="51" parent="12" name="PRIMARY">
+    <key id="53" parent="12" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>personid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="52" parent="13" name="profferid">
+    <column id="54" parent="13" name="profferid">
       <Position>1</Position>
       <Comment>供应商Id</Comment>
       <DataType>varchar(6)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="53" parent="13" name="name">
+    <column id="55" parent="13" name="name">
       <Position>2</Position>
       <Comment>供应商名称</Comment>
       <DataType>varchar(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="54" parent="13" name="personid">
+    <column id="56" parent="13" name="personid">
       <Position>3</Position>
       <Comment>外键，关联联系人表</Comment>
       <DataType>int(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="55" parent="13" name="other">
+    <column id="57" parent="13" name="other">
       <Position>4</Position>
       <Comment>备注</Comment>
       <DataType>varchar(25)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="56" parent="13" name="PK_Per">
+    <index id="58" parent="13" name="PK_Per">
       <ColNames>personid</ColNames>
     </index>
-    <key id="57" parent="13" name="PRIMARY">
+    <key id="59" parent="13" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>profferid</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="58" parent="13" name="PK_Per">
+    <foreign-key id="60" parent="13" name="PK_Per">
       <ColNames>personid</ColNames>
       <RefSchemaName>gaorui</RefSchemaName>
       <RefTableName>person</RefTableName>
       <RefColNames>personid</RefColNames>
     </foreign-key>
-    <column id="59" parent="14" name="userid">
+    <column id="61" parent="14" name="saleid">
+      <Position>1</Position>
+      <DataType>varchar(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="14" name="merchid">
+      <Position>2</Position>
+      <DataType>varchar(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="63" parent="14" name="num">
+      <Position>3</Position>
+      <DataType>int(4)|0</DataType>
+    </column>
+    <column id="64" parent="14" name="date">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="65" parent="14" name="about">
+      <Position>5</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="66" parent="14" name="PK_ms">
+      <ColNames>merchid</ColNames>
+    </index>
+    <key id="67" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>saleid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="68" parent="14" name="PK_ms">
+      <ColNames>merchid</ColNames>
+      <RefSchemaName>gaorui</RefSchemaName>
+      <RefTableName>merch</RefTableName>
+      <RefColNames>merchid</RefColNames>
+    </foreign-key>
+    <column id="69" parent="15" name="storeid">
+      <Position>1</Position>
+      <Comment>库存主键</Comment>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="15" name="merchid">
+      <Position>2</Position>
+      <Comment>外键，关联商品表</Comment>
+      <DataType>varchar(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="71" parent="15" name="num">
+      <Position>3</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="72" parent="15" name="other">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <index id="73" parent="15" name="PK_sm">
+      <ColNames>merchid</ColNames>
+    </index>
+    <key id="74" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>storeid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="75" parent="15" name="PK_sm">
+      <ColNames>merchid</ColNames>
+      <RefSchemaName>gaorui</RefSchemaName>
+      <RefTableName>merch</RefTableName>
+      <RefColNames>merchid</RefColNames>
+    </foreign-key>
+    <column id="76" parent="16" name="userid">
       <Position>1</Position>
       <DataType>int(5)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="60" parent="14" name="loginid">
+    <column id="77" parent="16" name="loginid">
       <Position>2</Position>
       <DataType>varchar(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="61" parent="14" name="password">
+    <column id="78" parent="16" name="password">
       <Position>3</Position>
       <DataType>varchar(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="62" parent="14" name="PRIMARY">
+    <key id="79" parent="16" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>userid</ColNames>
       <Primary>1</Primary>
