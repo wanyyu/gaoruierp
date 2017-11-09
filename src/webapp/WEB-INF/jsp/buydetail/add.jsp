@@ -54,7 +54,7 @@
 
 			<br/>
 			备注：
-			<input type="number" id="other" name="other" class="input" value="${imp.other}" style="width:250px; line-height:17px;display:inline-block"/>
+			<input type="text" id="other" name="other" class="input" value="${imp.other}" style="width:250px; line-height:17px;display:inline-block"/>
 			<br/>
 			<input type="button" id="btnStu" value="确认"  class="button border-main icon-search">
 			<input type="button" value="返回" onclick="history.back()" class="button border-main icon-search">

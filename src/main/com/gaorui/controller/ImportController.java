@@ -78,21 +78,23 @@ public class ImportController {
             //进货表进货数量
             Integer num=importService.getImport(im.getImportid()).getNum();
             //修改前货物状态
-            Integer about=im.getAbout();
+            Integer about=importService.getImport(im.getImportid()).getAbout();
             if(importService.updateImport(im)){
                 if(im.getAbout()==1) {
                     if (about == 0) {
                         st.setNum(im.getNum() + st.getNum());
+                        if (storeService.updateStore(st))
+                            result.put("flag", true);
                     } else {
                         //联动库存1
                         if (im.getNum() > num) {
-                            st.setNum(st.getNum() - (im.getNum()-num));
+                            st.setNum(st.getNum() + (im.getNum()-num));
                             if (storeService.updateStore(st))
                                 result.put("flag", true);
                         }
                         //联动库存2
                         if (im.getNum() < num) {
-                            st.setNum(st.getNum() + num - im.getNum());
+                            st.setNum(st.getNum() -(num - im.getNum()) );
                             if (storeService.updateStore(st))
                                 result.put("flag", true);
                         }
